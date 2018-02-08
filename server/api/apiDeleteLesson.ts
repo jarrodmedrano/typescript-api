@@ -10,9 +10,7 @@ export function apiDeleteLesson(req:Request, res:Response) {
 
     deleteLesson(lessonId)
         .then(_.partial(onSuccess, res))
-        .catch(err => {
-            _.partial(databaseErrorHandler, res);
-        })
+        .catch(_.partial(databaseErrorHandler, res))
         .catch(_.partial(onError, res, `Could not delete lesson ${lessonId}`));
 }
 

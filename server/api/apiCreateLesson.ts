@@ -9,9 +9,7 @@ import {databaseErrorHandler} from "./databaseErrorHandler";
 export function apiCreateLesson(req:Request, res:Response) {
     createLesson(req.body)
         .then(_.partial(onSuccess, res))
-        .catch(err => {
-            _.partial(databaseErrorHandler, res);
-        })
+        .catch(_.partial(databaseErrorHandler, res))
         .catch(_.partial(onError, res, 'Could not create lesson'));
 }
 
